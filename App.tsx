@@ -1,20 +1,8 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
-import type {PropsWithChildren} from 'react';
 import {
   SafeAreaView,
-  ScrollView,
-  StatusBar,
   StyleSheet,
-  Text,
   useColorScheme,
-  View,
 } from 'react-native';
 
 import {
@@ -25,35 +13,12 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
+import {
+  View, 
+  Text,
+  Button, 
+  TabController, 
+} from 'react-native-ui-lib';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -63,54 +28,47 @@ function App(): React.JSX.Element {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Hello world 1">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-        </View>
-      </ScrollView>
+    <SafeAreaView style={styles.fullScreen}>
+      <View style={styles.container}>
+        <Text style={styles.textStyle}>Hello world</Text>
+      </View>
+      
+      <View style={styles.buttonBar}>
+        <Button label={'Press'} size={Button.sizes.medium} backgroundColor={Colors.red30}/>
+        <Button label={'Press'} size={Button.sizes.medium} backgroundColor={Colors.red30}/>
+        <Button label={'Press'} size={Button.sizes.medium} backgroundColor={Colors.red30}/>
+        <Button label={'Press'} size={Button.sizes.medium} backgroundColor={Colors.red30}/>
+        <Button label={'Press'} size={Button.sizes.medium} backgroundColor={Colors.red30}/>
+      </View>
+
+      <TabController.TabBar activeBackgroundColor={Colors.blue30}/>
+
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  fullScreen: {
+    flex: 1, // 使 SafeAreaView 填满整个屏幕
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
+  container: {
+    flex: 1, // 填满除了按钮栏之外的所有空间
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
+  textStyle:{
+    marginTop: 20, 
+    textAlign: 'center', 
+    color: 'blue', 
+    fontWeight: 'bold', 
+    fontSize: 20 
   },
-  highlight: {
-    fontWeight: '700',
+  buttonBar: {
+    position: 'absolute', // 绝对定位
+    bottom: 0,            // 定位到底部
+    flexDirection: 'row', // 按钮水平排列
+    width: '100%',        // 宽度填满屏幕
+    justifyContent: 'space-evenly', // 按钮间均匀分布
   },
 });
 
