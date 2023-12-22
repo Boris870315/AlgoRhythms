@@ -9,7 +9,7 @@ const YourComponent = () => {
     <Image
       source={localImageSource}
       style={{ width: 100, height: 100 }}
-      // 添加其他您需要的属性
+      
     />
   );
 };
