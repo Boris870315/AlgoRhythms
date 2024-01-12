@@ -25,11 +25,11 @@ const AppNavigator = () => {
     //set the starting page as HomePage
     <Stack.Navigator initialRouteName="HomePage">
 
-      <Stack.Screen name="HomePage" component={HomeScreen} />
-      <Stack.Screen name="MarketPage" component={Market} />
-      <Stack.Screen name="TradePage" component={Trade} />
-      <Stack.Screen name="AccountPage" component={Account} />
-      <Stack.Screen name="WatchListPage" component={WatchList} /> 
+      <Stack.Screen name="HomePage" component={HomeScreen} options={{ headerTitle: '' }}/>
+      <Stack.Screen name="MarketPage" component={Market} options={{ headerTitle: '' }} />
+      <Stack.Screen name="TradePage" component={Trade} options={{ headerTitle: '' }}/>
+      <Stack.Screen name="AccountPage" component={Account} options={{ headerTitle: '' }}/>
+      <Stack.Screen name="WatchListPage" component={WatchList} options={{ headerTitle: '' }}/> 
 
     </Stack.Navigator>
   );
