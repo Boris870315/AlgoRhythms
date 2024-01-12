@@ -5,16 +5,19 @@ import {
 } from 'react-native';
 import { Text } from 'react-native-ui-lib';
 import  MenuBar from './MenuBar'
+import TopBar from './TopBar';
 
-function Page1(): React.JSX.Element {
-
+function Account(): React.JSX.Element {
   return (
     <SafeAreaView style={styles.fullScreen}>
-      <Text style={styles.textStyle}>PAGE 1</Text>
+      <TopBar/>
+      <Text style={styles.textStyle}>PAGE Account</Text>
       <MenuBar/>
     </SafeAreaView>
   );
 }
+
+//setup the layout of the screen 
 const styles = StyleSheet.create({
   fullScreen: {
     flex: 1, // 使 SafeAreaView 填满整个屏幕
@@ -33,4 +36,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Page1;
+export default Account;

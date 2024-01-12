@@ -11,68 +11,69 @@ type HomePageNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Hom
 const MenuBar = () => {
     const navigation = useNavigation<HomePageNavigationProp>();
     const state = useNavigationState(state => state);
-
-    // 获取当前路由名称
     const currentRouteName = state.routes[state.index]?.name;
-
     const getButtonStyle = (buttonName: string) => {
         return currentRouteName === buttonName
             ? [styles.buttonMenu, styles.selectedButton]
             : styles.buttonMenu;
     };
 
-    const localImageSource = require('./assets/images/1.jpg');
-    // const localImageSource = require('./assets/images/1.jpg');
-    // const localImageSource = require('./assets/images/1.jpg');
-    // const localImageSource = require('./assets/images/1.jpg');
-    // const localImageSource = require('./assets/images/1.jpg');
+    //set up the buttom picture 
+    const homeImageSource = require('./assets/images/MenuBar-Home.png');
+    const marketImageSource = require('./assets/images/MenuBar-Market.png');
+    const tradeImageSource = require('./assets/images/MenuBar-Trade.png');
+    const watchListImageSource = require('./assets/images/MenuBar-WatchList.png');
+    const accountImageSource = require('./assets/images/MenuBar-Account.png');
 
-    const navigateToPage1 = () => {
-        navigation.navigate('Page1');
+    //setup the navigation 
+    const navigateToMarket = () => {
+        navigation.navigate('MarketPage');
     };
-    // const navigateToPage2 = () => {
-    //     navigation.navigate('Page2');
-    // };
-    // const navigateToPage3 = () => {
-    //     navigation.navigate('Page3');
-    // };
-    // const navigateToPage4 = () => {
-    //     navigation.navigate('Page4');
-    // };
+    const navigateToTrade = () => {
+        navigation.navigate('TradePage');
+    };
+    const navigateToWatchList = () => {
+        navigation.navigate('WatchListPage');
+    };
+    const navigateToaccount = () => {
+        navigation.navigate('AccountPage');
+    };
     const navigateToHomePage = () => {
         navigation.navigate('HomePage');
     };
 
+
+    //set up the layout 
     return (
         <View style={styles.buttonBar}>
-            <TouchableOpacity onPress={navigateToPage1}>
+            <TouchableOpacity onPress={navigateToMarket}>
                 <Image
-                    source={localImageSource}
-                    style={getButtonStyle('Page1')}
+                    source={marketImageSource}
+                    style={getButtonStyle('MarketPage')}
                 />
             </TouchableOpacity>
-            <TouchableOpacity onPress={navigateToPage1}>
+            <TouchableOpacity onPress={navigateToTrade}>
                 <Image
-                    source={localImageSource}
-                    style={styles.buttonMenu}
+                    source={tradeImageSource}
+                    style={getButtonStyle('TradePage')}
                 />
             </TouchableOpacity>
             <TouchableOpacity onPress={navigateToHomePage}>
                 <Image
-                    source={localImageSource}
+                    source={homeImageSource}
                     style={getButtonStyle('HomePage')}
                 />
             </TouchableOpacity>
-            <TouchableOpacity onPress={navigateToPage1}>
+            <TouchableOpacity onPress={navigateToWatchList}>
                 <Image
-                    source={localImageSource}
-                    style={styles.buttonMenu}
+                    source={watchListImageSource}
+                    style={getButtonStyle('WatchListPage')}
                 />
             </TouchableOpacity>
-            <TouchableOpacity onPress={navigateToPage1}>
+            <TouchableOpacity onPress={navigateToaccount}>
                 <Image
-                    source={localImageSource}
-                    style={styles.buttonMenu}
+                    source={accountImageSource}
+                    style={getButtonStyle('AccountPage')}
                 />
             </TouchableOpacity>
 
@@ -103,7 +104,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         margin: 5,
-        backgroundColor: '#0000ff', // 默认背景颜色
+        backgroundColor: '#FFFFFF', // 默认背景颜色
     },
     selectedButton: {
         backgroundColor: '#FFFFFF', // 选中按钮的背景颜色

@@ -2,29 +2,22 @@ import React from 'react';
 import {
   SafeAreaView,
   StyleSheet,
-  View, 
 } from 'react-native';
 import { Text } from 'react-native-ui-lib';
-
-// import the conponents 
 import  MenuBar from './MenuBar'
-import  TopBar from './TopBar'
+import TopBar from './TopBar';
 
-const HomeScreen = () => {
-
+function Market(): React.JSX.Element {
   return (
     <SafeAreaView style={styles.fullScreen}>
-      <TopBar></TopBar>
-      <View style={styles.container}>
-        <Text style={styles.textStyle}>Home Page</Text>
-      </View>
-
+      <TopBar/>
+      <Text style={styles.textStyle}>PAGE Market</Text>
       <MenuBar/>
     </SafeAreaView>
   );
 }
 
-//setup the layout for the whole screen 
+//setup the layout of the screen 
 const styles = StyleSheet.create({
   fullScreen: {
     flex: 1, // 使 SafeAreaView 填满整个屏幕
@@ -43,4 +36,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeScreen;
+export default Market;

@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import AppNavigator from './AppNavigator';
-import YourComponent from './TestPage'
 
+// this is the start page 
 function App(): React.JSX.Element {
   const [selectedIndex, setSelectedIndex] = React.useState(0);
 
@@ -13,10 +13,10 @@ function App(): React.JSX.Element {
   ];
 
   return (
+    //start with the navigation and the home page 
     <NavigationContainer>
       <AppNavigator />
     </NavigationContainer>
-    //<YourComponent/>
   );
 }
 
